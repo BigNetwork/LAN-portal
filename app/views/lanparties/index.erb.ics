@@ -1,0 +1,29 @@
+<%
+
+	cal = Icalendar::Calendar.new
+	# to appease Outlook
+	cal.custom_property("METHOD","PUBLISH")
+	loc_string = ""
+	loc_string << @lanparty.location_name + ", " if !self.location_name.blank?
+	loc_string << @lanparty.location_address
+	
+	for @lanparty in @lanparties
+		
+		event = Icalendar::Event.new
+		event.klass       "PUBLIC"
+		event.dtstart     DateTime.civil(@lanparty.start.strftime("%Y").to_i, self.start.strftime("%m").to_i, self.date.strftime("%d").to_i,self.start.strftime("%H").to_i, self.start.strftime("%M").to_i)
+		event.dtend       DateTime.civil(@lanparty.end.strftime("%Y").to_i, self.end.strftime("%m").to_i, self.end.strftime("%d").to_i,self.end.strftime("%H").to_i, self.end.strftime("%M").to_i)
+		event.summary     @lanparty.title
+		event.description @lanparty.description
+		event.location    loc_string #@lanparty.location_address
+		event.dtstamp     @lanparty.created_at.to_datetime
+		event.url         "http://mpv.mine.nu:3000/lanparties/#{@lanparty.id.to_s}"
+		event.uid         "lanparty-#{@lanparty.id.to_s}"
+		event.sequence    0
+	
+		cal.add_event(event)
+		
+	end
+
+%>
+<%= cal.to_ical %>

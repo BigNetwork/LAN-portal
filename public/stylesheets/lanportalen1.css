@@ -1,0 +1,131 @@
+html, body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+body{
+  background: #333;
+  color: #eee;
+  font-family: sans-serif;
+}
+a:link{
+  color: hotpink/*chartreuse#336699*/;
+}
+a:visited{
+  color: hotpink/*#6699cc*/;
+}
+
+#container{
+  margin: 0 auto;
+  margin-top: 5em;
+  width: 800px;
+}
+
+/**********************************************************  SCAFFOLDED TABLES */
+.index table{
+  width: 100%;
+}
+.index table th{
+  text-align: left;
+}
+
+/**********************************************************  THE EVENT MAP */
+
+#map_div{
+	color: #000;
+}
+
+/**********************************************************  THE EVENT CALENDAR */
+
+.thecalendar{
+  border-spacing: 1px;
+  width: 100%;
+}
+.thecalendar .month_names{
+  font-size: 150%;
+  line-height: 150%;
+  text-transform: capitalize;
+}
+.thecalendar .next, .thecalendar .previous{
+}
+.thecalendar .next a, .thecalendar .previous a{
+  background: #333;
+  color: hotpink;
+  display: block;
+  font-weight: bold;
+}
+.thecalendar .next a:hover, .thecalendar .previous a:hover{
+  background: #333;
+  color: #fff;
+}
+/**.thecalendar td{
+    background: #f1f1f1;
+      text-align: center;
+        width: 14%;
+        }*/
+.thecalendar .day_names{
+  color: #999;
+}
+.thecalendar .day_names th{
+  font-weight: normal !important;
+}
+.thecalendar .day{
+  background: #3a3a3a;
+  color: #999;
+  font-size: 80%;
+  line-height: 140%;
+  padding: 0.3em;
+  text-align: right;
+  width: 13%;
+}
+.thecalendar .today{
+  background: #333139 !important;
+  color: #fff;
+  font-weight: bold;
+}
+.thecalendar .weekend{
+  background: #3A3638;
+}
+.thecalendar .otherMonth{
+  color: #555;
+  background: #373737;
+  text-align: right;
+  vertical-align: top;
+}
+.thecalendar .specialDay{
+}
+.thecalendar .daysActivities{
+  height: 6em;
+  /*  font-size: 80%;*/
+  /*  padding: 5%;*/
+  padding-top: 5px;
+  text-align: left;
+}
+.thecalendar a{
+  background: hotpink;
+  color: #000;
+  display: block;
+  margin: -0.3em;
+  padding: 0.4em;
+  text-decoration: none;
+}
+.thecalendar a:hover{
+  background: #fff;
+  color: #000;
+}
+.thecalendar a.start{
+  -webkit-border-top-left-radius: 7px;
+  -webkit-border-bottom-left-radius: 7px;
+}
+.thecalendar a.end{
+  -webkit-border-top-right-radius: 7px;
+  -webkit-border-bottom-right-radius: 7px;
+}
+
+/**************************************************************** Get satisfaction: */
+
+a#fdbk_close:hover{
+  background-color: none !important;
+}
+

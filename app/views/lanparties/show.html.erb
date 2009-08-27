@@ -1,0 +1,51 @@
+<h1><%=h @lanparty.title %></h1>
+
+<p>
+  <b>Start:</b>
+  <%=h @lanparty.start.to_s(:long) %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%=h @lanparty.end.to_s(:long) %>
+</p>
+
+<h3>Description:</h3>
+<p>
+  <%=h @lanparty.description %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= link_to @lanparty.website, @lanparty.website %>
+</p>
+
+
+<% if @lanparty.people.count > 0 %>
+<h3><%= pluralize(@lanparty.people.count, "person") %> <%= @lanparty.people.count == 1 ? 'is' : 'are' %> going:</h3>
+<ul>
+<% for participant in @lanparty.participants %>
+  <li><%= link_to participant.person.login, participant.person %> (<%= time_ago_in_words participant.created_at %> ago)</li>
+<% end %>
+</ul>
+<% end %>
+<%# if logged_in? %>
+<p>
+  <%= link_to 'Add me in!', { :controller => 'participants', :action => 'new', :lanparty_id => @lanparty.id } %>
+</p>
+<%# end %>
+
+<%= GMap.header %>
+<%= @map.to_html %>
+
+<%= @map.div(:width => 600, :height => 400) %>
+
+<!--
+<p>
+  <b>Added by:</b>
+  <%=h @lanparty.added_by %>
+</p>
+-->
+
+<%= link_to 'Edit', edit_lanparty_path(@lanparty) %> |
+<%= link_to 'Back', lanparties_path %>

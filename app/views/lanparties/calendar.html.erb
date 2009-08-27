@@ -1,0 +1,36 @@
+<%= render :partial => 'header' %>
+
+<%= calendar_for(                                                                                                                                                                   
+        @year, 
+        @month, 
+        :calendar_class => 'thecalendar',
+        #:first_day_of_week => 1,  
+        :use_full_day_names => true,
+        :next_month => link_to('&raquo;', { :controller => 'lanparties', :action => 'calendar', :year => @next_year, :month => @next_month}),
+        :previous_month => link_to('&laquo;', { :controller => 'lanparties', :action => 'calendar', :year => @prev_year, :month => @prev_month})
+        #:previous_month => link_to('&laquo;', { :controller => :calendar, :month => }), 
+        #:next_month => '&raquo;'
+        #:next_month => lambda { |date| link_to "&raquo;", calendar_path(date.year, month.year) }
+        ) do |day|
+          cell_text  = "#{day.mday}<div class=\"daysActivities\"> "
+          cell_attrs = { :class => 'day' }
+          @lanparties.each do |a| 
+            #if (a.start.month == day.month && a.start.mday == day.mday) || (a.end.month == day.month && a.end.mday == day.mday)
+            if (day.to_date >= a.start.to_date && day.to_date <= a.end.to_date)
+              if (day.to_date == a.start.to_date && day.to_date == a.end.to_date)
+                cell_text << link_to(a.title, a, { :class => 'start end'}) << '<br />'
+              elsif (day.to_date == a.start.to_date)
+                cell_text << link_to(a.title, a, { :class => 'start'}) << '<br />'
+              elsif (day.to_date == a.end.to_date)
+                cell_text << link_to(a.title, a, { :class => 'end'}) << '<br />'
+              else
+                cell_text << link_to(a.title, a) << '<br />'
+              end
+              cell_attrs[:class] = 'specialDay'
+            end 
+          end 
+          cell_text << '</div>'
+          [cell_text, cell_attrs]
+
+       end 
+%>

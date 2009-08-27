@@ -1,0 +1,61 @@
+<%= render :partial => 'header' %>
+
+<h2>Upcoming LAN parties</h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Seats</th>
+    <th></th>
+    <th></th>
+<!--
+    <th>Added by</th>
+-->
+  </tr>
+
+<% @upcoming_lanparties.each do |lanparty| %>
+  <tr>
+    <td><%= link_to lanparty.title, lanparty %></td>
+    <td><%=h lanparty.start.to_formatted_s(:long) %></td>
+    <td><%=h lanparty.end.to_formatted_s(:long) %></td>
+    <td><%=h lanparty.seats %></td>
+<!--
+    <td><%=h lanparty.added_by %></td>
+-->
+    <td><%= link_to 'Edit', edit_lanparty_path(lanparty) %></td>
+    <td><%#= link_to 'Destroy', lanparty, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Past LAN parties</h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Seats</th>
+    <th></th>
+    <th></th>
+<!--
+    <th>Added by</th>
+-->
+  </tr>
+
+<% @past_lanparties.each do |lanparty| %>
+  <tr>
+    <td><%= link_to lanparty.title, lanparty %></td>
+    <td><%=h lanparty.start.to_formatted_s(:long) %></td>
+    <td><%=h lanparty.end.to_formatted_s(:long) %></td>
+    <td><%=h lanparty.seats %></td>
+<!--
+    <td><%=h lanparty.added_by %></td>
+-->
+    <td><%= link_to 'Edit', edit_lanparty_path(lanparty) %></td>
+    <td><%#= link_to 'Destroy', lanparty, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

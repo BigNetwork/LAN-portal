@@ -1,0 +1,13 @@
+<p>
+  <b>Person:</b>
+  <%=h @participant.person_id %>
+</p>
+
+<p>
+  <b>Lanparty:</b>
+  <%=h @participant.lanparty_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_participant_path(@participant) %> |
+<%= link_to 'Back', participants_path %>

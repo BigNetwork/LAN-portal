@@ -1,0 +1,24 @@
+<h1>
+The LAN party 
+<%- 
+  if controller.action_name != 'index' -%><%= link_to 'list', { :controller => :lanparties, :action => :index } %><%- 
+  else -%>list<%- 
+  end -%> | <%- 
+  
+  if controller.action_name != 'calendar' -%><%= link_to 'calendar', { :controller => :lanparties, :action => :calendar } %><%- 
+  else -%>calendar<%- 
+  end -%> | <%- 
+  
+  if controller.action_name != 'map' -%><%= link_to 'map', { :controller => :lanparties, :action => :map } %><%- 
+  else -%>map<%- 
+  end -%>
+  |
+  <%= link_to 'rss', { :action => :index, :format => :atom } %>
+  |
+  <%= link_to 'ics', { :action => :index, :format => :ics } %>
+</h1>
+
+<p>
+  Feel free to <%= link_to 'Add a LAN party', new_lanparty_path %>.
+</p>
+<p>&nbsp;</p>

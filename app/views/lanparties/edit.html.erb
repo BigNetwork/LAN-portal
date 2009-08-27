@@ -1,0 +1,13 @@
+<h1>Editing lanparty</h1>
+
+<% form_for(@lanparty) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @lanparty %> |
+<%= link_to 'Back', lanparties_path %>
